@@ -13,7 +13,7 @@ class FinanceManager:
         self.window.geometry("800x900")
         self.window.configure(bg="#f0f0f0")
 
-        # Stil ayarları
+        # Style Settings
         self.style = ttk.Style()
         self.style.configure("Custom.TFrame", background="#f0f0f0")
         self.style.configure("Title.TLabel",
@@ -42,21 +42,21 @@ class FinanceManager:
             json.dump(self.data, f)
 
     def create_widgets(self):
-        # Ana container
+        # Main container
         main_frame = ttk.Frame(self.window, style="Custom.TFrame", padding="20")
         main_frame.pack(fill=tk.BOTH, expand=True)
 
-        # Başlık
+        # Title
         title = ttk.Label(main_frame,
                           text="Personal Finance Manager",
                           style="Title.TLabel")
         title.pack(pady=(0, 20))
 
-        # Giriş alanları için frame
+        # Frame for input fields
         input_frame = ttk.Frame(main_frame, style="Custom.TFrame")
         input_frame.pack(fill=tk.X, pady=10)
 
-        # Gelir Bölümü
+        # Income section
         income_frame = ttk.LabelFrame(input_frame,
                                       text="Add Income",
                                       padding="10",
@@ -76,7 +76,7 @@ class FinanceManager:
                    style="Custom.TButton",
                    command=self.add_income).pack(pady=10)
 
-        # Gider Bölümü
+        # Expense section
         expense_frame = ttk.LabelFrame(input_frame,
                                        text="Add Expense",
                                        padding="10",
@@ -96,7 +96,7 @@ class FinanceManager:
                    style="Custom.TButton",
                    command=self.add_expense).pack(pady=10)
 
-        # Özet bölümü
+        # Summary section
         summary_frame = ttk.LabelFrame(main_frame,
                                        text="Financial Summary",
                                        padding="10",
@@ -118,7 +118,7 @@ class FinanceManager:
                                        foreground="blue")
         self.savings_label.pack()
 
-        # Grafik alanı
+        # Graph area
         self.graph_frame = ttk.Frame(main_frame, style="Custom.TFrame")
         self.graph_frame.pack(fill=tk.BOTH, expand=True, pady=20)
 
@@ -197,7 +197,7 @@ class FinanceManager:
         ax1.set_title("Income vs Expenses")
         ax1.set_ylabel("Amount ($)")
 
-        # Pasta grafik
+        # Pie chart
         if income > 0 or expenses > 0:
             ax2.pie([income, expenses],
                     labels=['Income', 'Expenses'],
