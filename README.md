@@ -17,14 +17,7 @@ A personal finance management application built with Python and Tkinter.
 - json
 
 ## Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/finance-manager.git
-cd finance-manager
-```
-
-2. Install required packages:
+1. Install required packages:
 ```bash
 pip install matplotlib
 ```
